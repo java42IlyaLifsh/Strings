@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class TestsClassStringBuilder {
 
-StringBuilder strBuilder = new StringBuilder("StringBuilder");
+StringBuilder strBuilder;
 	
 	@BeforeEach
 	void setUp() throws Exception {
