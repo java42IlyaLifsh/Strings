@@ -39,8 +39,9 @@ public static String arithmeticExpression() {
  * 7 digits that may or may not be separated by dash
  */
 public static String mobileIsraelPhone() {
-	//TODO
-	return "";
+	  
+      
+      return "(\\+972\\s*-?|0)(5\\d|7[2-7])(-?\\d){7}";
 }
 /**
  * 
@@ -49,8 +50,8 @@ public static String mobileIsraelPhone() {
  * each part is the  regex of String ipV4Part()
  */
 public static String ipV4() {
-	//TODO
-	 return "";
+	
+	return String.format("((%1$s)\\.){3}(%1$s)", ipV4Part());
 }
 
 }

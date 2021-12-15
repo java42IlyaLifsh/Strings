@@ -99,6 +99,8 @@ import static strings.RegExpressions.*
 		assertFalse("...".matches(ipV4()));
 		assertFalse(".100.200.".matches(ipV4()));
 		assertFalse("255,255,255,255".matches(ipV4()));
+		assertFalse("100.100.100.100.".matches(ipV4()));
+
 	}
 	@Test
 	void mobileIsraelTrueTest() {
@@ -135,29 +137,30 @@ import static strings.RegExpressions.*
 	}
 
 	private String getStringWithoutSpaces(String str) {
-		// TODO write this method based on the method replaceAll of the class String
-		return null;
+		
+		return str.replaceAll("\\s+", "");
 	}
 	@Test
 	void splitTest () {
 		String expr = " 20 +10 * 2	/100 +4     ";
 		String [] operatorsExp = {"", "+", "*", "/", "+"};
-		assertEquals(operatorsExp, getOperatorsExpression(expr));
+		assertArrayEquals(operatorsExp, getOperatorsExpression(expr));
 		String [] operandsExp = {"20", "10", "2", "100", "4"};
-		assertEquals(operandsExp, getOperandsExpression(expr));
+		assertArrayEquals(operandsExp, getOperandsExpression(expr));
 	}
 
-	private Object getOperandsExpression(String expr) {
+	private String[] getOperandsExpression(String expr) {
 		// TODO the method returns array of strings containing only the operands of the given expression
 		// see test. Based on the method split of the class String
-		return null;
+		expr = expr.trim();
+		return expr.split("\\D+");
 	}
 
 	private String[] getOperatorsExpression(String expr) {
 		// TODO the method returns array of strings containing the operators of the given expression
 		// with empty string as the first string (see test)
 		//based on the method split of the class String
-		return null;
+		return expr.split("[\\d\\s]+");
 	}
 	
 
