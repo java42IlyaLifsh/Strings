@@ -1,5 +1,5 @@
 package encoding;
-//HW_21
+//HW_21 
 public class BaseSecret {
 	private String secret;
 public void setSecret(String secret) {
