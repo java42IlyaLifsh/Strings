@@ -13,6 +13,7 @@ public BaseSecret() {
 	
 public int setSecret(String secret) {
 	int validCode = secretValidationCode(secret);
+	//[YG] better to throw exception in the case of invalid secret key
 	if (validCode==0) this.secret = secret; //validCode<0 if in string secret was noncorrect
 	
 	return validCode;	
@@ -44,6 +45,7 @@ public static String toBaseString(int num, int base) {
 
 	do {
 		int rem = num % base;
+		//[YG] for base > 10 rem may be >= 10 (two symbols) , so that approach won't work
 		builder.insert(0, rem);
 		num = num / base;
 		
@@ -99,7 +101,7 @@ public String toSecretString(int num) {
 	return builder.toString();
 }
 public boolean matches(String code, String decString) {
-	
+	//[YG] following code will work only for base = 2.
 	return code.equals(toSecretString(parseIntBase(decString, secret.length())));
 }
 
