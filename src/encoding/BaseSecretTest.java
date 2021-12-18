@@ -1,5 +1,5 @@
 package encoding;
-//HW_21
+//HW_21 IlyaL
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -33,15 +33,21 @@ class BaseSecretTest {
 
 	@Test
 	void testToSecretString() {
-		bs.setSecret(".-"); 
+		String secret = ".-";
+		int validCode = bs.setSecret(secret);
+		if (validCode<0) System.out.println("input string isnt valid. Make defailt decimal cinctructor, code="+validCode);
+				
 		assertEquals("-..", bs.toSecretString(4));
 		
 	}
 
 	@Test
 	void testMatches() {
-		bs.setSecret("()");
-		assertTrue(bs.matches(")((", "4"));
+		String secret = "()";
+		int validCode =	bs.setSecret(secret);
+		if (validCode<0) System.out.println("input string isnt valid. Make defailt decimal cinctructor, code="+validCode);
+		
+		assertTrue(bs.matches(")((", "4") );
 	}
 
 }
