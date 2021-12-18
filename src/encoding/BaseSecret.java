@@ -3,6 +3,8 @@ package encoding;
 import java.util.HashSet;
 
 //HW_21 IlyaL
+
+// V.R. All is OK
 public class BaseSecret {
 	private String secret;
 

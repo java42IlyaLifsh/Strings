@@ -35,6 +35,9 @@ class BaseSecretTest {
 	void testToSecretString() {
 		String secret = ".-";
 		int validCode = bs.setSecret(secret);
+		/* V.R. In case of JUnit it is much better to use 
+		 * fail("...")
+		 */
 		if (validCode<0) System.out.println("input string isnt valid. Make defailt decimal cinctructor, code="+validCode);
 				
 		assertEquals("-..", bs.toSecretString(4));
@@ -45,6 +48,9 @@ class BaseSecretTest {
 	void testMatches() {
 		String secret = "()";
 		int validCode =	bs.setSecret(secret);
+		/* V.R. In case of JUnit it is much better to use 
+		 * fail("...")
+		 */
 		if (validCode<0) System.out.println("input string isnt valid. Make defailt decimal cinctructor, code="+validCode);
 		
 		assertTrue(bs.matches(")((", "4") );
